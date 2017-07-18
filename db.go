@@ -7,8 +7,9 @@ var currentId int
 var questions Questions
 
 func init() {
-	CreateQ(Question{Q: "What's black, white and read all over?", A: "A Newspaper"})
-	CreateQ(Question{Q: "What's the difference between a piano and a fish?", A: "You can't tuna fish"})
+	CreateQ(Question{Q: "Who invented JavaScript?", Choices: [4]string{"Larry Page", "David Evans", "Brendan Eich", "Tim Heidecker",}, A: 2})
+	CreateQ(Question{Q: "What's the shape of a Sierpinski Gasket?", Choices: [4]string{"Square", "Pentagram", "Snowflake", "Triangle",},A: 3})
+	CreateQ(Question{Q: "Which of the following is not a GIRLS Girl?", Choices: [4]string{"Hannah", "Carrie", "Shoshana", "Marnie",},A: 1})
 }
 
 func FindQ(id int) Question {

@@ -22,13 +22,11 @@ func GetQuestions(w http.ResponseWriter, r *http.Request) {
 
     if err := json.NewEncoder(w).Encode(questions); err != nil{
         panic(err)
-    }
-
-	
+    }	
 }
 
 func SingleQuestion(w http.ResponseWriter, r *http.Request) {
-	vars :=mux.Vars(r)
+	vars := mux.Vars(r)
 	questionId := vars["questionId"]
 	fmt.Fprintln(w, "Question: ", questionId)
 }

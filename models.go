@@ -3,7 +3,8 @@ package main
 type Question struct {
 	Id int `json:"id"`
 	Q string `json:"question"`
-	A string `json:"answer"`
+	Choices [4]string `json:"choices"`
+	A int `json:"answer"`
 	Answered bool `json:"answered"`
 }
 
