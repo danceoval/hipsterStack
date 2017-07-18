@@ -7,7 +7,7 @@ import (
     "html"
     "io"
     "io/ioutil"
-
+    "strconv"
     "github.com/gorilla/mux"
 )
 
@@ -28,7 +28,15 @@ func GetQuestions(w http.ResponseWriter, r *http.Request) {
 func SingleQuestion(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	questionId := vars["questionId"]
-	fmt.Fprintln(w, "Question: ", questionId)
+    id, err := strconv.Atoi(questionId)
+
+    if err != nil {
+        panic(err)
+    }
+
+    w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+    w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(questions[id - 1])
 }
 
 func QuestionCreate(w http.ResponseWriter, r *http.Request) {
